@@ -7,7 +7,7 @@ class payWindowClass:
     def __init__(self, master):
         self.master = master #reference til main window objektet
         self.payWindow = Toplevel(self.master.root)
-        self.payWindow.title("Pay Window")
+        self.payWindow.title("Betalings terminal")
         self.payWindow.geometry("200x200")
 
         Label(self.payWindow,
