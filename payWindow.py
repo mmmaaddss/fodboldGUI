@@ -3,7 +3,6 @@ from tkinter import *
 from tkinter import messagebox
 
 class payWindowClass:
-
     def __init__(self, master):
         self.master = master #reference til main window objektet
         self.payWindow = Toplevel(self.master.root)
@@ -27,6 +26,6 @@ class payWindowClass:
             return
 
         self.master.total += amount
-        self.master.progressLabelText.set(f"Indsamlet: {self.master.total} af {self.master.target} kroner:")
+        self.master.progressLabelText.set(f"{self.master.total} / {self.master.target} Indsamlet")
         print(f"Indsamlet: {self.master.total} af {self.master.target} kroner!")
         self.master.progress['value'] = self.master.total / self.master.target * 100

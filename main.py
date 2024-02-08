@@ -6,6 +6,8 @@ from payWindow import payWindowClass
 from worstWindow import worstWindowClass
 import pickle
 filename = 'betalinger.pk'
+infile = open(filename,'rb')
+fodboldtur = pickle.load(infile)
 
 class mainWindow:
     def __init__(self):
