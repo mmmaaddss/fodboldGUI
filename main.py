@@ -1,6 +1,11 @@
 # importing tkinter module
 from tkinter import *
 from tkinter.ttk import *  # Progressbar
+from listWindow import listWindowClass
+from payWindow import payWindowClass
+from worstWindow import worstWindowClass
+import pickle
+filename = 'betalinger.pk'
 
 class mainWindow:
     def __init__(self):
@@ -32,11 +37,12 @@ class mainWindow:
         input_frame.pack(pady=10)
 
         # Buttons
-        self.button1 = Button(input_frame, text="Indbetal", command=self.indbetal)
+        self.button1 = Button(input_frame, text="Indbetal", command = lambda: payWindowClass(self))
         self.button1.pack(side=LEFT, padx=5)
 
-        self.button2 = Button(input_frame, text="Liste over betalinger", command=self.liste)
+        self.button2 = Button(input_frame, text="Liste over betalinger", command = lambda: listWindowClass(self))
         self.button2.pack(side=LEFT, padx=5)
+
 
         # Top 3 brookies section
         brookies_label = Label(self.root, text="Top 3 brookies", font=("Arial", 20))
@@ -54,13 +60,6 @@ class mainWindow:
         # infinite loop
         mainloop()
 
-    def indbetal(self):
-        print("diede")
-        pass
-
-    def liste(self):
-        print("test")
-        pass
 
 if __name__ == '__main__':
     main = mainWindow()
