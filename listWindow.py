@@ -19,6 +19,7 @@ class listWindowClass:
         for key, value in self.master.fodboldtur.items():
             frame = Frame(self.listWindow, borderwidth=2, relief=GROOVE)
             frame.pack(side=TOP, fill=BOTH, expand=False)
+
             leftframe = Frame(frame, borderwidth=2, relief=GROOVE)
             leftframe.pack(side=LEFT, fill=BOTH, expand=False)
             leftframe.pack_propagate(False)
@@ -31,9 +32,9 @@ class listWindowClass:
 
             rightframe = Frame(frame, borderwidth=2, relief=GROOVE)
             rightframe.pack(side=RIGHT, fill=BOTH, expand=False)
-            self.progress = Progressbar(self.listWindow, orient=HORIZONTAL, length=200, mode='determinate')
-            self.progress['value'] = (self.master.fodboldtur[key] / self.master.personaltarget) * 100
-
+            progress = Progressbar(rightframe, orient=HORIZONTAL, length=200, mode='determinate')
+            progress['value'] = (self.master.fodboldtur[key] / self.master.personaltarget) * 100
+            progress.pack(side=TOP, anchor='center')  # Pack the progress bar inside rightframe
 
     ## Left frame
      #self.leftFrame = Frame(self.listWindow, borderwidth=2, relief=GROOVE)
