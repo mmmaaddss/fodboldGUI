@@ -5,14 +5,17 @@ from listWindow import listWindowClass
 from payWindow import payWindowClass
 from worstWindow import worstWindowClass
 import pickle
-filename = 'betalinger.pk'
-infile = open(filename,'rb')
-fodboldtur = pickle.load(infile)
 
 class mainWindow:
     def __init__(self):
-        self.total = 12500
-        self.target = 25000
+        self.filename = 'betalinger.pk'
+        self.infile = open(self.filename,'rb')
+        self.fodboldtur = pickle.load(self.infile)
+        self.sum = sum(self.fodboldtur.values())
+        self.personaltarget = 4500
+        self.target = self.personaltarget*len(self.fodboldtur)
+        self.total = self.sum
+        self.target = self.target
 
         # creating tkinter window
         self.root = Tk()
